@@ -16,7 +16,9 @@ export default function Navbar() {
                         <Link to="/">Home</Link>
                     </li>
                     <li className={styles.item}>
-                        <Link to="/projects">Projetos</Link>
+                        <Link to="/projects" msg="false">
+                            Projetos
+                        </Link>
                     </li>
                     <li className={styles.item}>
                         <Link to="/company">Empresa</Link>

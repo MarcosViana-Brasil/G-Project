@@ -18,9 +18,7 @@ export default function NewProject() {
         })
             .then((resp) => resp.json())
             .then((data) => {
-                navigate('/projects', {
-                    message: 'Projeto criado com sucesso',
-                })
+                navigate('/projects')
             })
             .catch((err) => console.log(err))
     }
@@ -29,7 +27,11 @@ export default function NewProject() {
         <div className={styles.newproject_container}>
             <h1>Criar projeto</h1>
             <p>Crie seu projeto para depois adicionar os serviços</p>
-            <ProjectForm btnText="Criar Projeto" handleSubmit={createProject} />
+            <ProjectForm
+                btnText="Criar Projeto"
+                handleSubmit={createProject}
+                msg="true"
+            />
         </div>
     )
 }

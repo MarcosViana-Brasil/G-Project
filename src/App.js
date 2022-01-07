@@ -7,6 +7,7 @@ import NewProject from './components/pages/NewProject'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Projects from './components/pages/Projects'
+import Project from './components/pages/Project'
 
 export default function App() {
     return (
@@ -19,6 +20,7 @@ export default function App() {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/newproject" element={<NewProject />} />
                     <Route path="/projects" element={<Projects />} />
+                    <Route path="/project/:id" element={<Project />} />
                 </Routes>
             </Container>
             <Footer />

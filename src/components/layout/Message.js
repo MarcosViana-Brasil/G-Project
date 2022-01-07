@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+
 import styles from './Message.module.css'
 
-export default function Message({ type, msg }) {
+export default function Message({ msg, type }) {
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {
@@ -13,7 +14,7 @@ export default function Message({ type, msg }) {
 
         const timer = setTimeout(() => {
             setVisible(false)
-        }, 3000)
+        }, 1200)
 
         return () => clearTimeout(timer)
     }, [msg])
@@ -21,9 +22,7 @@ export default function Message({ type, msg }) {
     return (
         <>
             {visible && (
-                <div className={`${styles.message} & ${styles[type]}`}>
-                    {msg}
-                </div>
+                <div className={`${styles.message} ${styles[type]}`}>{msg}</div>
             )}
         </>
     )
