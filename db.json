@@ -1,15 +1,39 @@
 {
   "projects": [
     {
-      "name": "rtfgere",
-      "budget": "54",
+      "name": "TESte",
+      "budget": "800",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 6
+    },
+    {
+      "name": "teste de novo projeto",
+      "budget": "190",
       "category": {
         "id": "3",
         "name": "Design"
       },
-      "cost": 0,
-      "services": [],
-      "id": 5
+      "cost": 189,
+      "services": [
+        {
+          "name": "sdsdf",
+          "cost": "19",
+          "description": "dfgdf",
+          "id": "cc6db7c0-36f7-41f4-9ee4-07309d351ce0"
+        },
+        {
+          "name": "sdsdf",
+          "cost": "170",
+          "description": "dfgdf",
+          "id": "f7062573-337b-45a5-a016-9b85772fe3ef"
+        }
+      ],
+      "id": 9
     }
   ],
   "categories": [

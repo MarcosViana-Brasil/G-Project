@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+// import { useFormik } from 'formik'
+
 import Input from '../form/Input'
 import Select from '../form/Select'
 import SubmitButton from '../form/SubmitButton'
@@ -27,10 +29,6 @@ export default function ProjectForm({ btnText, handleSubmit, projectData }) {
         handleSubmit(project)
     }
 
-    function handleChange(e) {
-        setProject({ ...project, [e.target.name]: e.target.value })
-    }
-
     function handleCategory(e) {
         setProject({
             ...project,
@@ -41,6 +39,29 @@ export default function ProjectForm({ btnText, handleSubmit, projectData }) {
         })
     }
 
+    function useFormik({ initialValues }) {
+        const [values, setValues] = useState(initialValues)
+
+        function handleChange(event) {
+            const fieldName = event.target.getAttribute('name')
+            const value = event.target.value
+            setValues({ ...values, [fieldName]: value })
+            setProject({ ...project, [fieldName]: value })
+        }
+
+        return {
+            values,
+            handleChange,
+        }
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            name: project.name ? project.name : '',
+            budget: project.budget ? project.budget : '',
+        },
+    })
+
     return (
         <form className={styles.form} onSubmit={submit}>
             <Input
@@ -48,16 +69,16 @@ export default function ProjectForm({ btnText, handleSubmit, projectData }) {
                 text="Nome do projeto"
                 name="name"
                 placeholder="Insira o nome do projeto"
-                handleOnChange={handleChange}
-                value={project.name ? project.name : ''}
+                handleOnChange={formik.handleChange}
+                value={formik.values.name}
             />
             <Input
                 type="number"
                 text="Orçamento do projeto"
                 name="budget"
                 placeholder="Insira o orçamento total"
-                handleOnChange={handleChange}
-                value={project.budget ? project.budget : ''}
+                handleOnChange={formik.handleChange}
+                value={formik.values.budget}
             />
             <Select
                 name="category_id"

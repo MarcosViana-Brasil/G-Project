@@ -23,7 +23,6 @@ export default function Projects({ msg }) {
                 .then((data) => {
                     setProjects(data)
                     setRemoveLoading(true)
-                    showMessage('Projeto criado com sucesso...')
                 })
                 .catch((err) => console.log(err))
         }, 300)

@@ -18,9 +18,14 @@ export default function NewProject() {
         })
             .then((resp) => resp.json())
             .then((data) => {
+                showMessage('Projeto criado com sucesso...')
                 navigate('/projects')
             })
             .catch((err) => console.log(err))
+    }
+
+    function showMessage(message) {
+        return alert(message)
     }
 
     return (
